@@ -65,7 +65,7 @@ jobs:
       - name: Build Release apk
         if: github.repository == 'agronick/flattery'
         run: >
-          ./gradlew assembleRelease 
+          ./gradlew assembleDebug
           -Pandroid.injected.signing.store.file=$HOME/debug.keystore 
           -Pandroid.injected.signing.key.alias=androiddebugkey 
           -Pandroid.injected.signing.store.password=android 
@@ -74,10 +74,10 @@ jobs:
       - name: Build Release apk for forked repos
         if: github.repository != 'agronick/flattery'
         run: >
-          ./gradlew assembleRelease 
+          ./gradlew assembleDebug 
 
       - name: Rename release
-        run: ls * && ls * app/build/outputs/apk/*/* && mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/flattery.apk
+        run: ls * && ls * app/build/outputs/apk/debug/* && mv app/build/outputs/apk/debug/*.apk app/build/outputs/apk/debug/flattery.apk
 
       - name: Create Github Release
         uses: softprops/action-gh-release@v1
@@ -87,5 +87,5 @@ jobs:
           generate_release_notes: true
           draft: true
           files: |
-            app/build/outputs/apk/release/flattery.apk
-            app/build/outputs/mapping/release/mapping.txt
+            app/build/outputs/apk/debug/flattery.apk
+            app/build/outputs/mapping/debug/mapping.txt
