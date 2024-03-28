@@ -77,7 +77,7 @@ jobs:
           ./gradlew assembleRelease 
 
       - name: Rename release
-        run: mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/flattery.apk
+        run: ls * && ls * app/build/outputs/apk/*/* && mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/flattery.apk
 
       - name: Create Github Release
         uses: softprops/action-gh-release@v1
