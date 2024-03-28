@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BIND_HOME_SCREEN" />
 
     <uses-feature android:name="android.hardware.type.watch" />
     <uses-permission
@@ -42,8 +43,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Add the BIND_HOME_SCREEN permission -->
-        <uses-permission android:name="android.permission.BIND_HOME_SCREEN" />
 
     </application>
 
