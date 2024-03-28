@@ -9,7 +9,6 @@
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
 
-
     <application
         android:name="com.agronick.launcher.Launcher"
         android:allowBackup="true"
@@ -17,18 +16,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault">
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="true" />
 
-        <!--
-               Set to true if your app is Standalone, that is, it does not require the handheld
-               app to run.
-        -->
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
-
+        <!-- Add the following intent-filter for your main activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -38,8 +27,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.HOME" /> <!-- Add this line -->
             </intent-filter>
         </activity>
+
+        <!-- Add the BIND_HOME_SCREEN permission -->
+        <uses-permission android:name="android.permission.BIND_HOME_SCREEN" />
 
     </application>
 
